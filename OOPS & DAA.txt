@@ -1,0 +1,247 @@
+
+DAA
+
+1. Write a program in python to store two matrices as an 2-D array. Hence find matrix addition of
+matrices.
+A = [[1, 2, 3], [4, 5, 6]]
+B = [[7, 8, 9], [10, 11, 12]]
+def AddMat(A,B):
+n = len(A)
+m = len(A[0])
+C=[]
+for i in range(0,n):
+ C.append([])
+ C[i]=[0]*m
+ for j in range(0,m):
+ C[i][j]=A[i][j]+B[i][j]
+print(" Matrix A + B : ",C)
+AddMat(A,B)
+2. Write a program in python to find position of particular number in the given array, by using
+linear/ binary search. array = [3, 6, 8, 12]
+def L_S(a,num):
+ for i in range(len(a)):
+ if a[i] == num:
+ return i+1
+ return -1
+arr=[3,4,8,12]
+print("Linaer Search result",L_S(arr,8))
+def bin_src(arr,target):
+ low,high = 0,len(arr)-1
+ while low<=high:
+ mid = (low + high)//2
+ if arr[mid]==target:
+ return mid+1
+ elif arr[mid]<target:
+ low=mid+1
+ else:
+ high=mid-1
+ return -1
+array=[1,3,5,7,9]
+print("Binary search result",bin_src(array,7))
+3. Write a program in python to find 4th maximum and minimum value of the given data.
+{5,3,13,7,2,4,8,12}
+def nth_max(A, n):
+A = sorted(A, reverse=True)
+print("A", A)
+print(n, "^th maximum number is : ", A[n-1])
+nth_max([5,3,13,7,2,4,8,12],4)
+def nth_min(A, n):
+A = sorted(A)
+print("A", A)
+print(n, "th minimum number is : ", A[n-1])
+nth_min([5,3,13,7,2,4,8,12],4)
+4. Write a program in python to find factorial of 6 by using recursion.
+def fact(n):
+ if n<=1:
+ return 1
+ else:
+ return n*fact(n-1)
+n=6
+print("Factorial of",n,"is",fact(n))
+5. Write a program in python to find 1st ten elements of Fibonacci series.
+def fibo(n):
+ if n <= 1:
+ return n
+ else:
+ return fibo(n - 1) + fibo(n - 2)
+n = 10
+print("Fibonacci:", [fibo(i) for i in range(n)])
+6. Write a program in python to find minimum number coins needed for
+changes of 59.
+def coin_change(coins, amount):
+ coins.sort(reverse=True)
+ count = 0
+ for i in coins:
+ while amount >= i:
+ amount = amount - i
+ count = count + 1
+ return count
+print("Coins needed:", coin_change([1, 2, 5, 10, 20], 59))
+
+
+
+OOPS
+1. Design an Employee class for reading and displaying the employee information, the getInfo()
+and dispInfo() are member functions will be used respectively.
+#include<iostream.h>
+#include<conio.h>
+class Emp
+{
+char name[20];
+int id;
+public:
+void getinfo()
+{
+cout<<"Enter Name and Id: ";
+cin>>name>>id;
+}
+void dispinfo()
+{
+cout<<"Name :"<<name<<"\"<<"ID"<<id;
+}
+};
+void main()
+{
+clrscr();
+Emp E;
+E.getinfo()
+E.dispinfo()
+getch();
+}
+2. Write and execute a C++ program using classes to find Factorial.
+#include<iostream.h>
+#include<conio.h>
+class Demofact
+{
+int no,i;
+public:
+void Fact()
+{
+cout<<"Enter the number :";
+cin>>no;
+int fact=1;
+for(i=1;i<=no;i++)
+{
+fact*=1;
+}
+cout<<fact<<endl;
+};
+void main()
+{
+clrscr();
+Demofact D;
+D.Fact()
+getch();
+}
+3. Write a program in C++ using array to arrange number in Matrix form.
+#include<iostream.h>
+#include<conio.h>
+void main()
+{
+clrscr();
+int arr[3][3],i,j;
+cout<<"Enter Array Element: "<<endl;
+for(i=0;i<3;i++)
+{
+ for(j=0;j<3;j++)
+ {
+ cin>>arr[i][j];
+ }
+}
+cout<<"Array Element in matrix: "<<endl;
+for(i=0;i<3;i++)
+{
+ for(j=0;j<3;j++)
+ {
+ cout<<arr[i][j]<<"/t";
+ }
+ cout<<"/n";
+}
+getch();
+}
+4. Write a program to Calculate the Area of Circle using Scope Resolution Operator.
+#include<iostream.h>
+#include<conio.h>
+class Area
+{
+public:
+void CircleArea()
+};
+void Area::CircleArea()
+{
+float r,are,pi=3.14;
+cout<<"Enter the radius :"<<endl;
+cin>>r;
+area=pi*r*r;
+cout<<"Area of Circle: "<<area<<endl;
+}
+void main()
+{
+clrscr();
+Area A;
+A.CircleArea();
+getch();
+}
+5. Write a program to display the side of the Cube.
+#include<iostream.h>
+#include<conio.h>
+class Cube
+{
+public:
+int side;
+Cube()
+{
+side=14;
+}
+Cube(int x)
+{
+side=x;
+}
+Cube(Cube & Ob)
+{
+side=Ob.side;
+}
+~Cube()
+{
+Cout<<"Object destroyed";
+}
+};
+void main()
+{
+clrscr();
+Cube c;
+cout<<"Default Constructor called"<<c.side<<endl;
+cout<<"Destructor called"<<c.~Cube<<endl;
+Cube c1(10);
+cout<<"Parameterized Constructor called"<<c1.side<<endl;
+Cube c2;
+c2=c;
+cout<<"Copy Constructor called"<<c2.side<<endl;
+getch();
+}
+6. Write and execute a C++ program using classes to check whether the number is Even number or
+Odd number.
+#include<iostream.h>
+#include<conio.h>
+class EvenOdd
+{
+int n;
+public:
+void funcEO()
+{
+cout<<"Enter the number :";
+cin>>n;
+if(n%2==0){
+cout<<n<<" Is Even:";
+}
+else{
+cout<<n<<" Is Odd:";
+}
+};
+void main()
+{
+clrscr();
+EvenOdd EO;
+EO.funcEO();
+getch();
+}
